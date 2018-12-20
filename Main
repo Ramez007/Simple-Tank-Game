@@ -1,0 +1,21 @@
+JFrame jf=new JFrame();
+//        GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
+//        jf.setSize(env.getMaximumWindowBounds().width, env.getMaximumWindowBounds().height);
+        jf.setSize(700, 700);
+        jf.setTitle("Simple Tank Game");
+        jf.setBackground(Color.DARK_GRAY);
+        
+        MovingBalls mb=new MovingBalls();
+        mb.Balls.add(new Ball (100, 80, 5, Color.BLACK));
+        mb.Balls.add(new Ball(90, 90, 25, Color.yellow));
+        mb.Balls.add(new Ball(100,100,20,Color.ORANGE));
+        mb.Balls.add(new Ball(160,160,15,Color.red));
+        mb.Balls.add(new Ball(180,180,10,Color.CYAN));
+        
+        
+        jf.add(mb,BorderLayout.CENTER);
+        mb.setFocusable(true);
+        Thread t1=new Thread(mb);
+        t1.start();
+        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jf.setVisible(true);
